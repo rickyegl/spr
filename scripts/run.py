@@ -135,7 +135,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.public:
-        wandb.init(anonymous="allow", config=args, tags=[args.tag] if args.tag else None, dir=args.wandb_dir)
+        print("anonymous")
+        wandb.init(anonymous="must", config=args, tags=[args.tag] if args.tag else None, dir=args.wandb_dir)
     else:
         wandb.init(project=args.project, entity=args.entity, config=args, tags=[args.tag] if args.tag else None, dir=args.wandb_dir)
     wandb.config.update(vars(args))
